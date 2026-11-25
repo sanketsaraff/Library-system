@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)file:///C:/Users/ADMIN/Downloads/Library_Management_System_Project%20(2)/Library_Management_System/index.html#catalog -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple browser-based Library Management System">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="./Library Management System_files/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">L</div>
+        <div><strong>LibraDesk</strong><small>Library workspace</small></div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a class="nav-link active" href="file:///C:/Users/ADMIN/Downloads/Library_Management_System_Project%20(2)/Library_Management_System/index.html#dashboard"><span>▦</span> Dashboard</a>
+        <a class="nav-link" href="file:///C:/Users/ADMIN/Downloads/Library_Management_System_Project%20(2)/Library_Management_System/index.html#catalog"><span>▤</span> Book catalog</a>
+        <a class="nav-link" href="file:///C:/Users/ADMIN/Downloads/Library_Management_System_Project%20(2)/Library_Management_System/index.html#activity"><span>↗</span> Recent activity</a>
+      </nav>
+      <div class="sidebar-note">
+        <div class="note-icon">✦</div>
+        <strong>Keep your library organised</strong>
+        <p>Add books, track availability and manage lending from one place.</p>
+      </div>
+      <div class="sidebar-footer">MINOR PROJECT · WEB DEVELOPMENT</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">LIBRARY MANAGEMENT</p>
+          <h1>Good day, Librarian <span>✦</span></h1>
+          <p class="muted">Manage your collection and lending activity.</p>
+        </div>
+        <button class="primary-btn" id="addBookTop">＋ Add a book</button>
+      </header>
+
+      <section class="stats-grid" aria-label="Library statistics">
+        <article class="stat-card">
+          <div class="stat-icon purple">▤</div><p>Total titles</p>
+          <strong id="totalBooks">3</strong><small>Books in your catalog</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green">✓</div><p>Available copies</p>
+          <strong id="availableBooks">9</strong><small>Ready to be issued</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon orange">↗</div><p>Issued copies</p>
+          <strong id="issuedBooks">0</strong><small>Currently on loan</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon blue">⌁</div><p>Categories</p>
+          <strong id="categoryCount">3</strong><small>Unique book categories</small>
+        </article>
+      </section>
+
+      <section class="content-card" id="catalog">
+        <div class="section-heading">
+          <div><p class="eyebrow">YOUR COLLECTION</p><h2>Book catalog</h2></div>
+          <span class="record-count" id="recordCount">3 records</span>
+        </div>
+        <div class="toolbar">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search title, author, ISBN..." aria-label="Search books"></label>
+          <select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option><option value="Biography">Biography</option><option value="Fiction">Fiction</option><option value="Technology">Technology</option></select>
+          <select id="statusFilter" aria-label="Filter by availability">
+            <option value="">All status</option><option value="Available">Available</option><option value="Issued">Issued</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>BOOK DETAILS</th><th>ISBN</th><th>CATEGORY</th><th>QUANTITY</th><th>STATUS</th><th>ACTIONS</th></tr></thead>
+            <tbody id="bookTableBody"><tr>
+      <td><div class="book-cell"><div class="book-cover">T</div><div><div class="book-title">The Alchemist</div><div class="book-author">by Paulo Coelho</div></div></div></td>
+      <td>9780061122415</td><td><span class="category-pill">Fiction</span></td>
+      <td>4</td><td><span class="status-pill available">Available</span></td>
+      <td><div class="actions"><button class="action-btn" data-action="issue" data-id="demo-1">Issue</button>
+        <button class="action-btn" data-action="edit" data-id="demo-1">Edit</button>
+        <button class="action-btn danger" data-action="delete" data-id="demo-1">Delete</button></div></td>
+    </tr><tr>
+      <td><div class="book-cell"><div class="book-cover">C</div><div><div class="book-title">Clean Code</div><div class="book-author">by Robert C. Martin</div></div></div></td>
+      <td>9780132350884</td><td><span class="category-pill">Technology</span></td>
+      <td>3</td><td><span class="status-pill available">Available</span></td>
+      <td><div class="actions"><button class="action-btn" data-action="issue" data-id="demo-2">Issue</button>
+        <button class="action-btn" data-action="edit" data-id="demo-2">Edit</button>
+        <button class="action-btn danger" data-action="delete" data-id="demo-2">Delete</button></div></td>
+    </tr><tr>
+      <td><div class="book-cell"><div class="book-cover">W</div><div><div class="book-title">Wings of Fire</div><div class="book-author">by A. P. J. Abdul Kalam</div></div></div></td>
+      <td>9788173711466</td><td><span class="category-pill">Biography</span></td>
+      <td>2</td><td><span class="status-pill available">Available</span></td>
+      <td><div class="actions"><button class="action-btn" data-action="issue" data-id="demo-3">Issue</button>
+        <button class="action-btn" data-action="edit" data-id="demo-3">Edit</button>
+        <button class="action-btn danger" data-action="delete" data-id="demo-3">Delete</button></div></td>
+    </tr></tbody>
+          </table>
+          <div class="empty-state" id="emptyState" hidden="">
+            <div>▤</div><h3>No books found</h3><p>Try another search or add a new book to your catalog.</p>
+            <button class="primary-btn" id="emptyAddBtn">＋ Add your first book</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card activity-card" id="activity">
+        <div class="section-heading"><div><p class="eyebrow">WHAT'S HAPPENING</p><h2>Recent activity</h2></div></div>
+        <div id="activityList" class="activity-list"><div class="activity-item"><div class="activity-dot">↙</div><div class="activity-text">&lt;strong&gt;Wings of Fire&lt;/strong&gt; returned by Demo Student</div><div class="activity-time">11/25/2026, 4:31:34 PM</div></div></div>
+      </section>
+      <footer>LibraDesk · Library Management System · Data is saved in this browser using LocalStorage.</footer>
+    </main>
+  </div>
+
+  <dialog id="bookDialog">
+    <form id="bookForm" method="dialog">
+      <div class="modal-heading"><div><p class="eyebrow">BOOK INFORMATION</p><h2 id="dialogTitle">Add a book</h2></div><button type="button" class="close-btn" id="closeDialog" aria-label="Close">×</button></div>
+      <input type="hidden" id="bookId">
+      <div class="form-grid">
+        <label class="full">Book title <span>*</span><input id="title" required="" maxlength="100" placeholder="e.g. The Alchemist"></label>
+        <label>Author <span>*</span><input id="author" required="" maxlength="80" placeholder="Author name"></label>
+        <label>ISBN <input id="isbn" maxlength="25" placeholder="ISBN number"></label>
+        <label>Category <span>*</span><input id="category" required="" maxlength="40" placeholder="e.g. Fiction"></label>
+        <label>Publisher<input id="publisher" maxlength="80" placeholder="Publisher name"></label>
+        <label>Year<input id="year" type="number" min="1000" max="2100" placeholder="2024"></label>
+        <label>Total quantity <span>*</span><input id="quantity" type="number" min="1" max="9999" value="1" required=""></label>
+      </div>
+      <p class="form-hint">Fields marked * are required. ISBN should be unique when provided.</p>
+      <div class="modal-actions"><button type="button" class="secondary-btn" id="cancelDialog">Cancel</button><button type="submit" class="primary-btn">Save book</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="issueDialog">
+    <form id="issueForm" method="dialog">
+      <div class="modal-heading"><div><p class="eyebrow">LENDING RECORD</p><h2>Issue a book</h2></div><button type="button" class="close-btn" id="closeIssueDialog">×</button></div>
+      <input type="hidden" id="issueBookId">
+      <p id="issueBookName" class="issue-book-name"></p>
+      <label>Borrower's name <span>*</span><input id="borrower" required="" maxlength="80" placeholder="Enter student/member name"></label>
+      <label>Borrower's ID<input id="borrowerId" maxlength="30" placeholder="Optional ID"></label>
+      <div class="modal-actions"><button type="button" class="secondary-btn" id="cancelIssue">Cancel</button><button type="submit" class="primary-btn">Confirm issue</button></div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./Library Management System_files/script.js"></script>
+
+</body></html>
